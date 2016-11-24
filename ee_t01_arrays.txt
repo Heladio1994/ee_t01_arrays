@@ -1,0 +1,48 @@
+import java.io.*;
+public class ee_t01_arrays
+{
+    
+   public static void main(String [] args){
+       
+    try{
+        FileInputStream fstream=new FileInputStream("C:/Users/Hp/Documents/prueba.txt");
+        //creamos objeto de entrada
+        DataInputStream entrada= new DataInputStream(fstream);
+        //creamos el bufer de lectura
+        BufferedReader buffer= new BufferedReader(new InputStreamReader(entrada));
+        String srtlinea;
+        //leer archivo linea por linea
+       int n2=0;
+        boolean bandera=false;
+        int cont=0;
+        
+        String n=buffer.readLine();
+        n2=Integer.parseInt(n);
+        String arreglo[]= new String[n2];
+          while((srtlinea=buffer.readLine())!=null){
+              arreglo[cont]=srtlinea;
+                //System.out.println(srtlinea);
+                cont++;
+                //System.out.println();
+               
+            }
+                System.out.println("REVERSE");
+           int j=cont;
+           System.out.println(n2);
+           while(j>0){
+            System.out.println("*"+arreglo[j-1]+"*");
+            j--;
+            }
+           
+            //cerramos el archivo
+            entrada.close();
+        
+            
+            
+    
+    }
+    catch(Exception e){
+    System.out.println("error"+e.toString());
+    }
+    }
+}
